@@ -15,7 +15,7 @@
             <img src="../assets/logo.png" />
           </section>
 
-          <form class="needs-validation"  @submit.prevent="salvar" novalidate>
+          <form @submit.prevent="salvar" >
             <h1>Cadastro do cliente</h1>
             <div class="row">
               <div class="col-6">
@@ -25,7 +25,7 @@
                   name="nome"
                   id="nome"
                   placeholder="Nome"
-                   v-model="cliente.nome"
+                  v-model="cliente.nome"
                   class="form-control"
                   required
                 />
@@ -37,7 +37,7 @@
                   name="cpf"
                   id="cpf"
                   placeholder="xxx.xxx.xxx-xx"
-                   v-model="cliente.cpf"
+                  v-model="cliente.cpf"
                   class="form-control"
                   required
                 />
@@ -51,7 +51,7 @@
                   name="email"
                   id="email"
                   placeholder="joaosilva@exemplo.com"
-                   v-model="cliente.email"
+                  v-model="cliente.email"
                   class="form-control"
                   required
                 />
@@ -63,26 +63,22 @@
                   name="endereco"
                   id="endereco"
                   placeholder="Cidade"
-                v-model="cliente.endereco"
+                  v-model="cliente.endereco"
                   class="form-control"
                   required
                 />
               </div>
             </div>
-            
-            <button type="submit" class="btn btn-dark button"> Cadastrar</button>
-            
-            <a class="btn btn-outline-dark button">Cancelar</a>
+
+            <button type="submit" class="btn btn-dark button">Cadastrar</button>
+
+            <button class="btn btn-outline-dark button" >
+              <router-link to="/carros" style="color:#000">Cancelar</router-link>
+            </button>
           </form>
-          <!--<div v-show="!cliente.idCliente == ''" >-->
-          <button class="btn btn-dark button">
-          <router-link :to="{ name: 'alugar2', params: { idCarro: this.route.params.id, idCliente: cliente.idCliente}}">
-            Proximo
-          </router-link>
-          </button>
-          
 
-
+          <!-- <div v-show="!cliente.idCliente == ''" > 
+          <button class="btn btn-dark button"></button>-->
         </div>
       </div>
     </div>
@@ -102,8 +98,7 @@ export default {
         cpf: "",
         email: "",
         endereco: ""
-      },
- 
+      }
     };
   },
 
@@ -114,12 +109,10 @@ export default {
         this.cliente = {};
         this.cliente = resposta;
       });
-    },
-   
-}
-}
+    }
+  }
+};
 </script>
 
 <style>
-
 </style>
